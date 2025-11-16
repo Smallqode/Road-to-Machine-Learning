@@ -7,13 +7,20 @@ def readfileandfolder():
     print(f'{i + 1} : {items}')
 
 def createfile():
-  readfileandfolder()
-  name = input('Specify your file name: ')
-  p = Path(name)
-  with open (p, 'w') as fs:
-    data = input('What you want to write in this file: ')
-    fs.write(data)
-  print('FILE CRATED SUCCESSFULLY')
+  try:
+    readfileandfolder()
+    name = input('Specify your file name: ')
+    p = Path(name)
+    if not p.exists():
+      with open (p, 'w') as fs:
+        data = input('What you want to write in this file: ')
+        fs.write(data)
+      print('FILE CRATED SUCCESSFULLY')
+    else:
+      print('This file already exists')
+
+  except Exception as err:
+    print(f'An error has occured as {err}')
 
 print('Press 1 to create a file')
 print('Press 2 to read a file')
