@@ -53,7 +53,7 @@ def updatefile():
       if response == 1:
         with open(p, 'w') as fs:
           name2 = input('Write your new file name: ')
-          p2 = path(name2)
+          p2 = Path(name2)
           p.rename(p2)
 
       if response == 2:
